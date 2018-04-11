@@ -15,9 +15,9 @@ public class TracerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         notificationUtils = new NotificationUtils(this);
         notify("onCreate");
+
     }
 
     @Override
