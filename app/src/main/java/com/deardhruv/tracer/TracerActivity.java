@@ -1,6 +1,7 @@
 package com.deardhruv.tracer;
 
 import android.app.Notification;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -62,7 +63,13 @@ public class TracerActivity extends AppCompatActivity {
         notify("onSaveInstanceState");
     }
 
-    private void notify(String methodName) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        notify("onActivityResult");
+    }
+
+    public void notify(String methodName) {
         String name = this.getClass().getName();
         String[] strings = name.split("\\.");
         Notification noti = getAndroidChannelNotification(methodName + " " + strings[strings.length - 1], name)

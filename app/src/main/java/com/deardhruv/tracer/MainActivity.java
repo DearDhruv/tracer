@@ -17,7 +17,8 @@ public class MainActivity extends TracerActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, SecondActivity.class)));
+        fab.setOnClickListener(view -> startActivityForResult(new Intent(MainActivity.this, SecondActivity.class), 111));
+
     }
 
     @Override
