@@ -9,6 +9,8 @@ import android.view.MenuItem;
 
 public class MainActivity extends TracerActivity {
 
+    public static final int REQUEST_CODE = 111;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,8 +19,11 @@ public class MainActivity extends TracerActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> startActivityForResult(new Intent(MainActivity.this, SecondActivity.class), 111));
+        fab.setOnClickListener(view -> fabAction());
+    }
 
+    private void fabAction() {
+        startActivityForResult(new Intent(MainActivity.this, SecondActivity.class), REQUEST_CODE);
     }
 
     @Override
