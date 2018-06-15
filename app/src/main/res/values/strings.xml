@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Tracer</string>
+    <string name="app_name">Lifecycle Tracer</string>
     <string name="action_settings">Settings</string>
 </resources>

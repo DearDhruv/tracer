@@ -3,9 +3,10 @@ package com.deardhruv.tracer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 /**
- * Created by deard on 19-05-2017.
+ * Created by deardhruv on 19-05-2017.
  */
 
 public class SecondActivity extends TracerActivity {
@@ -20,6 +21,9 @@ public class SecondActivity extends TracerActivity {
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> closeActivity());
+
+        ((TextView) findViewById(R.id.txt_title)).setText(getClass().getSimpleName());
+
     }
 
     private void closeActivity() {

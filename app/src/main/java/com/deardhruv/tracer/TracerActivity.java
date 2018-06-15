@@ -2,13 +2,15 @@ package com.deardhruv.tracer;
 
 import android.app.Notification;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import static com.deardhruv.tracer.NotificationUtils.ANDROID_CHANNEL_ID;
 
 /**
- * Created by deard on 19-05-2017.
+ * Created by deardhruv on 19-05-2017.
  */
 public class TracerActivity extends AppCompatActivity {
     NotificationUtils notificationUtils;
@@ -18,7 +20,6 @@ public class TracerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         notificationUtils = new NotificationUtils(this);
         notify("onCreate");
-
     }
 
     @Override
@@ -81,7 +82,9 @@ public class TracerActivity extends AppCompatActivity {
         return new Notification.Builder(getApplicationContext(), ANDROID_CHANNEL_ID)
                 .setContentTitle(title)
                 .setContentText(body)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_stat_cycle)
+                .setLargeIcon(((BitmapDrawable) ResourcesCompat.getDrawable(this.getResources(),
+                        R.drawable.ic_stat_cycle_large, null)).getBitmap())
                 .setAutoCancel(true);
     }
 }
