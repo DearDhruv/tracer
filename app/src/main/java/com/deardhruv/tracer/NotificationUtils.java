@@ -6,6 +6,8 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 
 public class NotificationUtils extends ContextWrapper {
 
@@ -15,9 +17,12 @@ public class NotificationUtils extends ContextWrapper {
 
     public NotificationUtils(Context base) {
         super(base);
-        createChannels();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            createChannels();
+        }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void createChannels() {
 
         // create android channel
@@ -32,10 +37,10 @@ public class NotificationUtils extends ContextWrapper {
         // Sets whether notifications posted to this channel appear on the lockscreen or not
         androidChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
 
-        getManager().createNotificationChannel(androidChannel);
+        getNotificationManager().createNotificationChannel(androidChannel);
     }
 
-    public NotificationManager getManager() {
+    public NotificationManager getNotificationManager() {
         if (mManager == null) {
             mManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         }

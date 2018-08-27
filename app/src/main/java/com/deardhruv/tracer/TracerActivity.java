@@ -75,7 +75,7 @@ public class TracerActivity extends AppCompatActivity {
         String[] strings = name.split("\\.");
         Notification noti = getAndroidChannelNotification(methodName + " " + strings[strings.length - 1], name)
                 .build();
-        notificationUtils.getManager().notify((int) System.currentTimeMillis(), noti);
+        notificationUtils.getNotificationManager().notify((int) System.currentTimeMillis(), noti);
     }
 
     public Notification.Builder getAndroidChannelNotification(String title, String body) {

@@ -7,6 +7,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
+import com.google.firebase.appindexing.Action;
+import com.google.firebase.appindexing.FirebaseAppIndex;
+import com.google.firebase.appindexing.FirebaseUserActions;
+import com.google.firebase.appindexing.Indexable;
+import com.google.firebase.appindexing.builders.Actions;
+
 public class MainActivity extends TracerActivity {
 
     public static final int REQUEST_CODE = 111;
@@ -42,4 +48,30 @@ public class MainActivity extends TracerActivity {
         startActivityForResult(new Intent(MainActivity.this, SecondActivity.class), REQUEST_CODE);
     }
 
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        return Actions.newView("Main", "http://deardhruv.com");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        FirebaseAppIndex.getInstance().update(new Indexable.Builder().setName("Main").setUrl("http://deardhruv.com").build());
+        FirebaseUserActions.getInstance().start(getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        FirebaseUserActions.getInstance().end(getIndexApiAction());
+        super.onStop();
+    }
 }
