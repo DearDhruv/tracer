@@ -1,9 +1,11 @@
 package com.deardhruv.tracer;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
+
+import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * Created by deardhruv on 19-05-2017.

@@ -1,11 +1,15 @@
 package com.deardhruv.tracer;
 
+import android.annotation.TargetApi;
 import android.app.Notification;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import static com.deardhruv.tracer.NotificationUtils.ANDROID_CHANNEL_ID;
 
@@ -70,6 +74,7 @@ public class TracerActivity extends AppCompatActivity {
         notify("onActivityResult");
     }
 
+    @TargetApi(Build.VERSION_CODES.O)
     public void notify(String methodName) {
         String name = this.getClass().getName();
         String[] strings = name.split("\\.");
@@ -78,6 +83,7 @@ public class TracerActivity extends AppCompatActivity {
         notificationUtils.getNotificationManager().notify((int) System.currentTimeMillis(), noti);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Notification.Builder getAndroidChannelNotification(String title, String body) {
         return new Notification.Builder(getApplicationContext(), ANDROID_CHANNEL_ID)
                 .setContentTitle(title)
